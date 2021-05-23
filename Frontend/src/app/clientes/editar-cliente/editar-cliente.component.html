@@ -1,0 +1,14 @@
+<mat-card class="formulario-editar">
+  <mat-card-header>
+    <mat-card-title><h2>Editar Cliente</h2></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-formulario-clientes
+      *ngIf="modelo"
+      [modelo]="modelo"
+      (guardarCambios)="guardarCambios($event)"
+    ></app-formulario-clientes>
+  </mat-card-content>
+</mat-card>
+
+<mat-spinner *ngIf="!modelo"></mat-spinner>

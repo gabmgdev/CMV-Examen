@@ -1,0 +1,66 @@
+<div class="contenedor">
+  <a routerLink="/" mat-raised-button color="primary" class="btn-volver"
+    >Volver</a
+  >
+  <mat-card class="card-info-cliente">
+    <mat-card-header class="mat-display-1"
+      >Cuentas a nombre de:
+      {{
+        cliente.nombre +
+          " " +
+          cliente.apellidoPaterno +
+          " " +
+          cliente.apellidoMaterno
+      }}</mat-card-header
+    >
+  </mat-card>
+
+  <table
+    *ngIf="cuentas.length > 0"
+    mat-table
+    [dataSource]="cuentas"
+    class="mat-elevation-z8 tabla-indice"
+  >
+    <ng-container matColumnDef="idCuenta">
+      <th mat-header-cell *matHeaderCellDef>Id Cuenta</th>
+      <td mat-cell *matCellDef="let element">{{ element.idClienteCuenta }}</td>
+    </ng-container>
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef>Cliente</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.nombreCliente }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="nombreCuenta">
+      <th mat-header-cell *matHeaderCellDef>Tipo de Cuenta</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombreCuenta }}</td>
+    </ng-container>
+    <ng-container matColumnDef="saldoActual">
+      <th mat-header-cell *matHeaderCellDef>Saldo Actual</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.saldoActual | currency }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="fechaContratacion">
+      <th mat-header-cell *matHeaderCellDef>Fecha de Contratación</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fechaContratacion | date }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="fechaUltimoMov">
+      <th mat-header-cell *matHeaderCellDef>Fecha Último Movimiento</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fechaUltimoMovimiento | date }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
+  </table>
+
+  <mat-card *ngIf="cuentas.length == 0" class="card-info-cliente">
+    <mat-card-header
+      >El cliente aún no tiene cuentas registradas</mat-card-header
+    >
+  </mat-card>
+</div>

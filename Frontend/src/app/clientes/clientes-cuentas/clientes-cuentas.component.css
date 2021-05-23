@@ -1,0 +1,19 @@
+.contenedor {
+  max-width: 100vw;
+  padding: 0 5rem;
+}
+
+table,
+mat-paginator {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-info-cliente {
+  width: 100%;
+  margin: 0 auto 2rem;
+}
+
+.btn-volver {
+  margin-bottom: 2rem;
+}

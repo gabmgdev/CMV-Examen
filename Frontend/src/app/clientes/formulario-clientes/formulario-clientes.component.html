@@ -1,0 +1,52 @@
+<form
+  (submit)="onSubmit()"
+  [formGroup]="form"
+  fxLayout="column"
+  fxLayoutAlign="center"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre*</mat-label>
+    <input formControlName="nombre" matInput />
+    <mat-error *ngIf="form.invalid">El campo nombre es requerido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido Paterno*</mat-label>
+    <input formControlName="apellidoPaterno" matInput />
+    <mat-error *ngIf="form.invalid"
+      >El campo apellido paterno es requerido</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido Materno*</mat-label>
+    <input formControlName="apellidoMaterno" matInput />
+    <mat-error *ngIf="form.invalid"
+      >El campo apellido materno es requerido</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>RFC*</mat-label>
+    <input formControlName="rfc" matInput />
+    <mat-error *ngIf="form.invalid">El campo RFC es requerido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>CURP*</mat-label>
+    <input formControlName="curp" matInput />
+    <mat-error *ngIf="form.invalid">El curp nombre es requerido</mat-error>
+  </mat-form-field>
+
+  <div fxLayout="row">
+    <button
+      mat-flat-button
+      color="primary"
+      class="btn-guardar"
+      [disabled]="form.invalid"
+    >
+      Guardar Cambios
+    </button>
+    <a mat-stroked-button routerLink="/"> Cancelar </a>
+  </div>
+</form>
